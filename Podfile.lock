@@ -1,0 +1,15 @@
+PODS:
+  - EZSwiftExtensions (1.7)
+  - SwiftRandom (1.0.0)
+
+DEPENDENCIES:
+  - EZSwiftExtensions
+  - SwiftRandom
+
+SPEC CHECKSUMS:
+  EZSwiftExtensions: 4afef248066a036903d8496bf07bc355b22ce766
+  SwiftRandom: 437275c63500ddf5a565cbd56996fb23f12cfc3d
+
+PODFILE CHECKSUM: a209bc3ab1146f8089c722829bbd233f8dd3fbe9
+
+COCOAPODS: 1.1.0.beta.1

@@ -1,0 +1,6 @@
+framework module Pods_DirectionalSnake {
+  umbrella header "Pods-DirectionalSnake-umbrella.h"
+
+  export *
+  module * { export * }
+}
