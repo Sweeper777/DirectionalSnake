@@ -14,5 +14,26 @@ class SnakeBody {
         node.anchorPoint = CGPoint.zero
         node.size = CGSize(width: nodeSize, height: nodeSize)
         node.zPosition = 1000
+        updateDirection(to: orientation)
+    }
+    
+    func updateDirection(to orientation: Orientation) {
+        switch orientation {
+        case .horizontal, .vertical:
+            node.texture = SKTexture(imageNamed: "straightSnake")
+        default:
+            node.texture = SKTexture(imageNamed: "angleSnake")
+        }
+        
+        switch orientation {
+        case .vertical, .southWest:
+            node.zRotation = CGFloat(M_PI / 2)
+        case .southEast:
+            node.zRotation = CGFloat(M_PI)
+        case .northEast:
+            node.zRotation = CGFloat(M_PI / 2 * 3)
+        default:
+            break
+        }
     }
 }
