@@ -12,5 +12,11 @@ class GameSystem {
         boardNode.zPosition = 999
         boardNode.position = CGPoint(x: snakeSize * -10, y: snakeSize * -10)
         boardNode.anchorPoint = CGPoint.zero
+        
+        let snakeBoady1 = SnakeBody(x: 0, y: 0, nodeSize: snakeSize, orientation: .northEast)
+        boardNode.addChild(snakeBoady1.node)
+        
+        let snakeBoady2 = SnakeBody(x: 0, y: 1, nodeSize: snakeSize, orientation: .vertical)
+        boardNode.addChild(snakeBoady2.node)
     }
 }
