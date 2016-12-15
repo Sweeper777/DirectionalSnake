@@ -10,8 +10,8 @@ class SnakeBody {
         self.x = x
         self.y = y
         self.node = SKSpriteNode(imageNamed: "straightSnake")
-        node.position = CGPoint(x: CGFloat(self.x) * nodeSize, y: CGFloat(self.y) * nodeSize)
-        node.anchorPoint = CGPoint.zero
+        node.position = CGPoint(x: CGFloat(self.x) * nodeSize + nodeSize / 2, y: CGFloat(self.y) * nodeSize + nodeSize / 2)
+        node.anchorPoint = CGPoint(x: 0.5, y: 0.5)
         node.size = CGSize(width: nodeSize, height: nodeSize)
         node.zPosition = 1000
         updateOrientation(to: orientation)
