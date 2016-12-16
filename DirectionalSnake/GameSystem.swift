@@ -4,6 +4,7 @@ class GameSystem {
     var board: [[BoardState]]
     let boardNode: SKSpriteNode
     let snakeSize: CGFloat
+    var snake: [SnakeBody] = []
     
     init(boardSize: CGFloat) {
         snakeSize = floor(boardSize / 20)
@@ -13,10 +14,10 @@ class GameSystem {
         boardNode.position = CGPoint(x: snakeSize * -10, y: snakeSize * -10)
         boardNode.anchorPoint = CGPoint.zero
         
-        let snakeBoady1 = SnakeBody(x: 0, y: 0, nodeSize: snakeSize, orientation: .northEast)
-        boardNode.addChild(snakeBoady1.node)
+        snake.append(SnakeBody(x: 0, y: 0, nodeSize: snakeSize, orientation: .northEast))
+        boardNode.addChild(snake[0].node)
         
-        let snakeBoady2 = SnakeBody(x: 0, y: 1, nodeSize: snakeSize, orientation: .vertical)
-        boardNode.addChild(snakeBoady2.node)
+        snake.append(SnakeBody(x: 0, y: 1, nodeSize: snakeSize, orientation: .vertical))
+        boardNode.addChild(snake[1].node)
     }
 }
