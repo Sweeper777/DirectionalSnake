@@ -37,4 +37,30 @@ class SnakeBody {
             break
         }
     }
+    
+    func move(in board: inout [[BoardState]]) -> BoardState {
+        
+        func move(dx: Int, dy: Int) -> BoardState {
+            let finalX: Int
+            switch x + dx {
+            case -1:
+                finalX = board.count - 1
+            case board.count:
+                finalX = 0
+            default:
+                finalX = x + dx
+            }
+            
+            let finalY: Int
+            switch y + dy {
+            case -1:
+                finalY = board[x].count - 1
+            case board[x].count:
+                finalY = 0
+            default:
+                finalY = y + dy
+            }
+            
+        }
+    }
 }
