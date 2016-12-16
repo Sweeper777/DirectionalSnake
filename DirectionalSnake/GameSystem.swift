@@ -19,5 +19,9 @@ class GameSystem {
         
         snake.append(SnakeBody(x: 0, y: 1, nodeSize: snakeSize, orientation: .vertical))
         boardNode.addChild(snake[1].node)
+        
+        board[0][0] = .snake(.northEast, .east)
+        board[0][1] = .snake(.vertical, .south)
+        
     }
 }
