@@ -25,6 +25,7 @@ class SnakeBody {
             node.texture = SKTexture(imageNamed: "angleSnake")
         }
         
+        node.zRotation = 0
         switch orientation {
         case .vertical, .southWest:
             node.zRotation = CGFloat(M_PI / 2)
