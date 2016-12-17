@@ -38,4 +38,52 @@ class GameSystem {
         self.board[lastX][lastY] = .empty
     }
     
+    func getOrientationAndDirectionOfSnakeBody(snakeBody: SnakeBody) -> (Orientation, Direction)? {
+        guard case .snake(let orientation, let direction) = board[snakeBody.x][snakeBody.y] else { return nil }
+        return (orientation, direction)
+    }
+    
+    @objc func swipedUp() {
+        let tuple = getOrientationAndDirectionOfSnakeBody(snakeBody: snake.first!)!
+        guard tuple.1 != .south && tuple.1 != .north else { return }
+        if tuple.1 == .east {
+            board[snake.first!.x][snake.first!.y] = .snake(.northWest, .north)
+        } else if tuple.1 == .west {
+            board[snake.first!.x][snake.first!.y] = .snake(.northEast, .north)
+        }
+        moveWholeSnake()
+    }
+    
+    @objc func swipedDown() {
+        let tuple = getOrientationAndDirectionOfSnakeBody(snakeBody: snake.first!)!
+        guard tuple.1 != .south && tuple.1 != .north else { return }
+        if tuple.1 == .east {
+            board[snake.first!.x][snake.first!.y] = .snake(.southWest, .south)
+        } else if tuple.1 == .west {
+            board[snake.first!.x][snake.first!.y] = .snake(.southEast, .south)
+        }
+        moveWholeSnake()
+    }
+    
+    @objc func swipedLeft() {
+        let tuple = getOrientationAndDirectionOfSnakeBody(snakeBody: snake.first!)!
+        guard tuple.1 != .east && tuple.1 != .west else { return }
+        if tuple.1 == .north {
+            board[snake.first!.x][snake.first!.y] = .snake(.southWest, .west)
+        } else if tuple.1 == .south {
+            board[snake.first!.x][snake.first!.y] = .snake(.northWest, .west)
+        }
+        moveWholeSnake()
+    }
+    
+    @objc func swipedRight() {
+        let tuple = getOrientationAndDirectionOfSnakeBody(snakeBody: snake.first!)!
+        guard tuple.1 != .east && tuple.1 != .west else { return }
+        if tuple.1 == .north {
+            board[snake.first!.x][snake.first!.y] = .snake(.southEast, .east)
+        } else if tuple.1 == .south {
+            board[snake.first!.x][snake.first!.y] = .snake(.northEast, .east)
+        }
+        moveWholeSnake()
+    }
 }
