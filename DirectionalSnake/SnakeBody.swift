@@ -73,6 +73,23 @@ class SnakeBody {
                 }
             }
             
+            x = finalX
+            y = finalY
+            let nodeSize = node.frame.width
+            node.position = CGPoint(x: CGFloat(self.x) * nodeSize + nodeSize / 2, y: CGFloat(self.y) * nodeSize + nodeSize / 2)
+            guard case .snake(let newOrientation, _) = board[x][y] else {
+                if dx == 0 {
+                    updateOrientation(to: .vertical)
+                } else if dy == 0 {
+                    updateOrientation(to: .horizontal)
+                } else {
+                    fatalError()
+                }
+                return returnValue
+            }
+            updateOrientation(to: newOrientation)
+            
+            return returnValue
         }
     }
 }
