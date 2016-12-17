@@ -61,6 +61,18 @@ class SnakeBody {
                 finalY = y + dy
             }
             
+            let returnValue = board[finalX][finalY]
+            
+            if case .snake(_, _) = board[finalX][finalY] {} else {
+                if dx == 0 {
+                    board[finalX][finalY] = .snake(.vertical, direction)
+                } else if dy == 0 {
+                    board[finalX][finalY] = .snake(.horizontal, direction)
+                } else {
+                    fatalError()
+                }
+            }
+            
         }
     }
 }
