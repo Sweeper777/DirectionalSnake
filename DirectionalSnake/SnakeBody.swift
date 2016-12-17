@@ -39,6 +39,7 @@ class SnakeBody {
     }
     
     func move(in board: inout [[BoardState]]) -> BoardState {
+        guard case .snake(let orientation, let direction) = board[x][y] else { fatalError("Trying to create snake at (\(x), \(y)) where there shouldn't be a snake.") }
         
         func move(dx: Int, dy: Int) -> BoardState {
             let finalX: Int
@@ -90,6 +91,17 @@ class SnakeBody {
             updateOrientation(to: newOrientation)
             
             return returnValue
+        }
+        
+        switch direction {
+        case .east:
+            return move(dx: 1, dy: 0)
+        case .north:
+            return move(dx: 0, dy: 1)
+        case .south:
+            return move(dx: 0, dy: -1)
+        case .west:
+            return move(dx: -1, dy: 0)
         }
     }
 }
