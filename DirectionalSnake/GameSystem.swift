@@ -23,11 +23,19 @@ class GameSystem {
         board[0][0] = .snake(.northEast, .east)
         board[0][1] = .snake(.vertical, .south)
         
-        let runCodeAction = SKAction.run {
-            for snakeBody in self.snake {
-                snakeBody.move(in: &self.board)
-            }
-        }
+        let runCodeAction = SKAction.run(moveWholeSnake)
         boardNode.run(SKAction.repeatForever(SKAction.sequence([SKAction.wait(forDuration: 0.5), runCodeAction])))
     }
+    
+    func moveWholeSnake() {
+        let moveResult = self.snake.first!.move(in: &self.board)
+        for snakeBody in self.snake.dropFirst().dropLast() {
+            _ = snakeBody.move(in: &self.board)
+        }
+        let lastX = self.snake.last!.x
+        let lastY = self.snake.last!.y
+        _ = self.snake.last!.move(in: &self.board)
+        self.board[lastX][lastY] = .empty
+    }
+    
 }
