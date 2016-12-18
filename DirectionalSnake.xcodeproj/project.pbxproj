@@ -21,6 +21,7 @@
 		5A1FD0671DFDADE40071AE2F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5A1FD0651DFDADE40071AE2F /* Main.storyboard */; };
 		5A1FD0691DFDADE40071AE2F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5A1FD0681DFDADE40071AE2F /* Assets.xcassets */; };
 		5A1FD06C1DFDADE40071AE2F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5A1FD06A1DFDADE40071AE2F /* LaunchScreen.storyboard */; };
+		5A220AB21E06806F00348596 /* GameSystemDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A220AB11E06806F00348596 /* GameSystemDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		5A1FD0681DFDADE40071AE2F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5A1FD06B1DFDADE40071AE2F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5A1FD06D1DFDADE40071AE2F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5A220AB11E06806F00348596 /* GameSystemDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameSystemDelegate.swift; sourceTree = "<group>"; };
 		8555DB47E55D1B8C1310DDA9 /* Pods-DirectionalSnake.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DirectionalSnake.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DirectionalSnake/Pods-DirectionalSnake.debug.xcconfig"; sourceTree = "<group>"; };
 		B7B0CEC616B90AA909333386 /* Pods-DirectionalSnake.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DirectionalSnake.release.xcconfig"; path = "Pods/Target Support Files/Pods-DirectionalSnake/Pods-DirectionalSnake.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -105,6 +107,7 @@
 				5A186A441DFEDDF60023501F /* SnakeBody.swift */,
 				5A1EFDA51E055308007FFD94 /* Food.swift */,
 				5A1C3C3A1DFFE02900C61790 /* GameSystem.swift */,
+				5A220AB11E06806F00348596 /* GameSystemDelegate.swift */,
 				5A186A461DFEE0440023501F /* HelperEnums.swift */,
 				5A1FD0651DFDADE40071AE2F /* Main.storyboard */,
 				5A1FD0681DFDADE40071AE2F /* Assets.xcassets */,
@@ -244,6 +247,7 @@
 				5A1FD0641DFDADE40071AE2F /* GameViewController.swift in Sources */,
 				5A186A451DFEDDF60023501F /* SnakeBody.swift in Sources */,
 				5A186A471DFEE0440023501F /* HelperEnums.swift in Sources */,
+				5A220AB21E06806F00348596 /* GameSystemDelegate.swift in Sources */,
 				5A1C3C3B1DFFE02900C61790 /* GameSystem.swift in Sources */,
 				5A1FD05C1DFDADE40071AE2F /* AppDelegate.swift in Sources */,
 			);
