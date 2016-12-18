@@ -123,4 +123,9 @@ class GameSystem {
         }
         moveWholeSnake()
     }
+    
+    deinit {
+        boardNode.removeAllActions()
+        boardNode.removeFromParent()
+    }
 }
