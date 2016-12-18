@@ -1,10 +1,12 @@
 import SpriteKit
+import SwiftRandom
 
 class GameSystem {
     var board: [[BoardState]]
     let boardNode: SKSpriteNode
     let snakeSize: CGFloat
     var snake: [SnakeBody] = []
+    var currentFood: Food?
     
     init(boardSize: CGFloat) {
         snakeSize = floor(boardSize / 20)
@@ -25,6 +27,25 @@ class GameSystem {
         
         let runCodeAction = SKAction.run(moveWholeSnake)
         boardNode.run(SKAction.repeatForever(SKAction.sequence([SKAction.wait(forDuration: 0.5), runCodeAction])))
+        
+        generateFood()
+    }
+    
+    func generateFood() {
+        var coordinates = [(Int, Int)]()
+        for x in 0..<board.count {
+            for y in 0..<board[x].count {
+                if case .empty = board[x][y] {
+                    coordinates.append((x, y))
+                }
+            }
+        }
+        if let coordinate = coordinates.randomItem() {
+            let foodOrientation: Orientation = Bool.random() ? .vertical : .horizontal
+            currentFood = Food(x: coordinate.0, y: coordinate.1, nodeSize: snakeSize, orientation: foodOrientation)
+            boardNode.addChild(currentFood!.node)
+            board[coordinate.0][coordinate.1] = .food(foodOrientation)
+        }
     }
     
     func moveWholeSnake() {
