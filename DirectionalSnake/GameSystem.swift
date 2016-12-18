@@ -22,8 +22,20 @@ class GameSystem {
         snake.append(SnakeBody(x: 0, y: 1, nodeSize: snakeSize, orientation: .vertical))
         boardNode.addChild(snake[1].node)
         
+        snake.append(SnakeBody(x: 0, y: 2, nodeSize: snakeSize, orientation: .vertical))
+        boardNode.addChild(snake[2].node)
+        
+        snake.append(SnakeBody(x: 0, y: 3, nodeSize: snakeSize, orientation: .vertical))
+        boardNode.addChild(snake[3].node)
+        
+        snake.append(SnakeBody(x: 0, y: 4, nodeSize: snakeSize, orientation: .vertical))
+        boardNode.addChild(snake[4].node)
+        
         board[0][0] = .snake(.northEast, .east)
         board[0][1] = .snake(.vertical, .south)
+        board[0][2] = .snake(.vertical, .south)
+        board[0][3] = .snake(.vertical, .south)
+        board[0][4] = .snake(.vertical, .south)
         
         let runCodeAction = SKAction.run(moveWholeSnake)
         boardNode.run(SKAction.repeatForever(SKAction.sequence([SKAction.wait(forDuration: 0.5), runCodeAction])))
