@@ -57,6 +57,10 @@ class GameSystem {
         let lastY = self.snake.last!.y
         _ = self.snake.last!.move(in: &self.board)
         self.board[lastX][lastY] = .empty
+        if case .food(let orientation) = moveResult {
+            currentFood!.node.removeFromParent()
+            generateFood()
+        }
     }
     
     func getOrientationAndDirectionOfSnakeBody(snakeBody: SnakeBody) -> (Orientation, Direction)? {
