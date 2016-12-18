@@ -37,7 +37,7 @@ class GameSystem {
         board[0][3] = .snake(.vertical, .south)
         board[0][4] = .snake(.vertical, .south)
         
-        let runCodeAction = SKAction.run(moveWholeSnake)
+        let runCodeAction = SKAction.run { [unowned self] in self.moveWholeSnake() }
         boardNode.run(SKAction.repeatForever(SKAction.sequence([SKAction.wait(forDuration: 0.5), runCodeAction])))
         
         generateFood()
@@ -127,5 +127,9 @@ class GameSystem {
     deinit {
         boardNode.removeAllActions()
         boardNode.removeFromParent()
+        
+        for child in boardNode.children {
+            child.run(SKAction.fadeOut(withDuration: 1))
+        }
     }
 }
