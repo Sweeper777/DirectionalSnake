@@ -1,6 +1,6 @@
 import SpriteKit
 
-class GameScene: SKScene {
+class GameScene: SKScene, GameSystemDelegate {
     var bg: SKSpriteNode!
     var gameSystem: GameSystem!
     var upRecog: UISwipeGestureRecognizer!
@@ -11,7 +11,13 @@ class GameScene: SKScene {
     override func didMove(to view: SKView) {
         bg = self.childNode(withName: "bg") as! SKSpriteNode
         
+    
+    func didGameOver(gameSystem: GameSystem) {
+        self.gameSystem.boardNode.children.forEach { $0.removeFromParent() }
+        self.gameSystem = nil
+    }
         gameSystem = GameSystem(boardSize: 750)
+        gameSystem.delegate = self
         bg.addChild(gameSystem.boardNode)
         
         upRecog = UISwipeGestureRecognizer(target: gameSystem, action: #selector(GameSystem.swipedUp))
