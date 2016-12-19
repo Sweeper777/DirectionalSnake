@@ -7,6 +7,7 @@ class GameSystem {
     let snakeSize: CGFloat
     var snake: [SnakeBody] = []
     var currentFood: Food?
+    var canChangeDirection = true
     weak var delegate: GameSystemDelegate?
     
     init(boardSize: CGFloat) {
@@ -89,6 +90,7 @@ class GameSystem {
             gameOver()
             return
         }
+        canChangeDirection = true
         }
     }
     
@@ -98,6 +100,9 @@ class GameSystem {
     }
     
     @objc func swipedUp() {
+        guard canChangeDirection else { return }
+        canChangeDirection = false
+        
         let tuple = getOrientationAndDirectionOfSnakeBody(snakeBody: snake.first!)!
         guard tuple.1 != .south && tuple.1 != .north else { return }
         if tuple.1 == .east {
@@ -105,10 +110,12 @@ class GameSystem {
         } else if tuple.1 == .west {
             board[snake.first!.x][snake.first!.y] = .snake(.northEast, .north)
         }
-        moveWholeSnake()
     }
     
     @objc func swipedDown() {
+        guard canChangeDirection else { return }
+        canChangeDirection = false
+        
         let tuple = getOrientationAndDirectionOfSnakeBody(snakeBody: snake.first!)!
         guard tuple.1 != .south && tuple.1 != .north else { return }
         if tuple.1 == .east {
@@ -116,10 +123,12 @@ class GameSystem {
         } else if tuple.1 == .west {
             board[snake.first!.x][snake.first!.y] = .snake(.southEast, .south)
         }
-        moveWholeSnake()
     }
     
     @objc func swipedLeft() {
+        guard canChangeDirection else { return }
+        canChangeDirection = false
+        
         let tuple = getOrientationAndDirectionOfSnakeBody(snakeBody: snake.first!)!
         guard tuple.1 != .east && tuple.1 != .west else { return }
         if tuple.1 == .north {
@@ -127,10 +136,12 @@ class GameSystem {
         } else if tuple.1 == .south {
             board[snake.first!.x][snake.first!.y] = .snake(.northWest, .west)
         }
-        moveWholeSnake()
     }
     
     @objc func swipedRight() {
+        guard canChangeDirection else { return }
+        canChangeDirection = false
+        
         let tuple = getOrientationAndDirectionOfSnakeBody(snakeBody: snake.first!)!
         guard tuple.1 != .east && tuple.1 != .west else { return }
         if tuple.1 == .north {
@@ -138,7 +149,6 @@ class GameSystem {
         } else if tuple.1 == .south {
             board[snake.first!.x][snake.first!.y] = .snake(.northEast, .east)
         }
-        moveWholeSnake()
     }
     
     func gameOver() {
