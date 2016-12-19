@@ -124,12 +124,12 @@ class GameSystem {
         moveWholeSnake()
     }
     
-    deinit {
+    func gameOver() {
         boardNode.removeAllActions()
-        boardNode.removeFromParent()
         
-        for child in boardNode.children {
+        for child in boardNode.children.dropLast() {
             child.run(SKAction.fadeOut(withDuration: 1))
         }
+        boardNode.children.last!.run(SKAction.sequence([SKAction.fadeOut(withDuration: 1), SKAction.run { [unowned self] in self.delegate?.didGameOver(gameSystem: self) }]))
     }
 }
