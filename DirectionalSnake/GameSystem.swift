@@ -7,6 +7,7 @@ class GameSystem {
     let snakeSize: CGFloat
     var snake: [SnakeBody] = []
     var currentFood: Food?
+    weak var delegate: GameSystemDelegate?
     
     init(boardSize: CGFloat) {
         snakeSize = floor(boardSize / 20)
@@ -70,8 +71,24 @@ class GameSystem {
         _ = self.snake.last!.move(in: &self.board)
         self.board[lastX][lastY] = .empty
         if case .food(let orientation) = moveResult {
+            let snakeOrientation: Orientation
+            switch getOrientationAndDirectionOfSnakeBody(snakeBody: snake.first!)!.1 {
+            case .north, .south:
+                snakeOrientation = .vertical
+            case .east, .west:
+                snakeOrientation = .horizontal
+            }
+            if snakeOrientation != orientation {
+                gameOver()
+                return
+            }
+            
             currentFood!.node.removeFromParent()
             generateFood()
+        } else if case .snake = moveResult {
+            gameOver()
+            return
+        }
         }
     }
     
