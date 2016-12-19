@@ -85,12 +85,31 @@ class GameSystem {
             }
             
             currentFood!.node.removeFromParent()
+            increaseSnakeLength()
             generateFood()
         } else if case .snake = moveResult {
             gameOver()
             return
         }
         canChangeDirection = true
+    }
+    
+    func increaseSnakeLength() {
+        var dx = 0
+        var dy = 0
+        let x = snake.first!.x
+        let y = snake.first!.y
+        let tuple = getOrientationAndDirectionOfSnakeBody(snakeBody: snake.first!)!
+        switch tuple.1 {
+        case .east:
+            dx = 1
+        case .north:
+            dy = 1
+        case .south:
+            dy = -1
+        case .west:
+            dx = -1
+        }
         }
     }
     
