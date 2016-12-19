@@ -11,11 +11,17 @@ class GameScene: SKScene, GameSystemDelegate {
     override func didMove(to view: SKView) {
         bg = self.childNode(withName: "bg") as! SKSpriteNode
         
+        initializeNewGame()
+    }
     
     func didGameOver(gameSystem: GameSystem) {
         self.gameSystem.boardNode.children.forEach { $0.removeFromParent() }
         self.gameSystem = nil
     }
+    
+    func initializeNewGame() {
+        view!.gestureRecognizers?.removeAll()
+        
         gameSystem = GameSystem(boardSize: 750)
         gameSystem.delegate = self
         bg.addChild(gameSystem.boardNode)
@@ -32,9 +38,9 @@ class GameScene: SKScene, GameSystemDelegate {
         rightRecog = UISwipeGestureRecognizer(target: gameSystem, action: #selector(GameSystem.swipedRight))
         rightRecog.direction = .right
         
-        view.addGestureRecognizer(upRecog)
-        view.addGestureRecognizer(downRecog)
-        view.addGestureRecognizer(leftRecog)
-        view.addGestureRecognizer(rightRecog)
+        view!.addGestureRecognizer(upRecog)
+        view!.addGestureRecognizer(downRecog)
+        view!.addGestureRecognizer(leftRecog)
+        view!.addGestureRecognizer(rightRecog)
     }
 }
