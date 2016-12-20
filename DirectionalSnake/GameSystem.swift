@@ -48,13 +48,15 @@ class GameSystem {
     }
     
     func moveWholeSnake() {
+        let lastX = self.snake.last!.x
+        let lastY = self.snake.last!.y
         let moveResult = self.snake.first!.move(in: &self.board)
         for snakeBody in self.snake.dropFirst().dropLast() {
             _ = snakeBody.move(in: &self.board)
         }
-        let lastX = self.snake.last!.x
-        let lastY = self.snake.last!.y
-        _ = self.snake.last!.move(in: &self.board)
+        if self.snake.count > 1 {
+            _ = self.snake.last!.move(in: &self.board)
+        }
         self.board[lastX][lastY] = .empty
         if case .food(let orientation) = moveResult {
             let snakeOrientation: Orientation
