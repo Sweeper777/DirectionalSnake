@@ -130,6 +130,20 @@ class GameSystem {
         default:
             finalY = y + dy
         }
+        
+        if case .snake = board[finalX][finalY] {
+            gameOver()
+            return
+        }
+        
+        if dx == 0 {
+            board[finalX][finalY] = .snake(.vertical, tuple.1)
+            snake.insert(SnakeBody(x: finalX, y: finalY, nodeSize: snakeSize, orientation: .vertical), at: 0)
+            boardNode.addChild(snake.first!.node)
+        } else if dy == 0 {
+            board[finalX][finalY] = .snake(.horizontal, tuple.1)
+            snake.insert(SnakeBody(x: finalX, y: finalY, nodeSize: snakeSize, orientation: .horizontal), at: 0)
+            boardNode.addChild(snake.first!.node)
         }
     }
     
