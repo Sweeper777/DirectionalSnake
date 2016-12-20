@@ -1,5 +1,6 @@
 import SpriteKit
 import SwiftRandom
+import EZSwiftExtensions
 
 class GameSystem {
     var board: [[BoardState]]
@@ -13,7 +14,7 @@ class GameSystem {
     init(boardSize: CGFloat) {
         snakeSize = floor(boardSize / 20)
         board = [[BoardState]](repeating: [BoardState](repeating: .empty, count: 20), count: 20)
-        boardNode = SKSpriteNode(color: UIColor.black.withAlphaComponent(0.7), size: CGSize(width: snakeSize * 20, height: snakeSize * 20))
+        boardNode = SKSpriteNode(color: UIColor(hexString: "8dee8d")!, size: CGSize(width: snakeSize * 20, height: snakeSize * 20))
         boardNode.zPosition = 999
         boardNode.position = CGPoint(x: snakeSize * -10, y: snakeSize * -10)
         boardNode.anchorPoint = CGPoint.zero
