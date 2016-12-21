@@ -147,12 +147,12 @@ class GameSystem {
         guard canChangeDirection else { return }
         canChangeDirection = false
         
-        let tuple = getOrientationAndDirectionOfSnakeBody(snakeBody: snake.first!)!
+        let tuple = getOrientationAndDirectionOfSnakeBody(snakeBody: firstSnake)!
         guard tuple.1 != .south && tuple.1 != .north else { return }
         if tuple.1 == .east {
-            board[snake.first!.x][snake.first!.y] = .snake(.northWest, .north)
+            board[firstSnake.x][firstSnake.y] = .snake(.northWest, .north)
         } else if tuple.1 == .west {
-            board[snake.first!.x][snake.first!.y] = .snake(.northEast, .north)
+            board[firstSnake.x][firstSnake.y] = .snake(.northEast, .north)
         }
     }
     
@@ -162,12 +162,12 @@ class GameSystem {
         guard canChangeDirection else { return }
         canChangeDirection = false
         
-        let tuple = getOrientationAndDirectionOfSnakeBody(snakeBody: snake.first!)!
+        let tuple = getOrientationAndDirectionOfSnakeBody(snakeBody: firstSnake)!
         guard tuple.1 != .south && tuple.1 != .north else { return }
         if tuple.1 == .east {
-            board[snake.first!.x][snake.first!.y] = .snake(.southWest, .south)
+            board[firstSnake.x][firstSnake.y] = .snake(.southWest, .south)
         } else if tuple.1 == .west {
-            board[snake.first!.x][snake.first!.y] = .snake(.southEast, .south)
+            board[firstSnake.x][firstSnake.y] = .snake(.southEast, .south)
         }
     }
     
@@ -177,12 +177,12 @@ class GameSystem {
         guard canChangeDirection else { return }
         canChangeDirection = false
         
-        let tuple = getOrientationAndDirectionOfSnakeBody(snakeBody: snake.first!)!
+        let tuple = getOrientationAndDirectionOfSnakeBody(snakeBody: firstSnake)!
         guard tuple.1 != .east && tuple.1 != .west else { return }
         if tuple.1 == .north {
-            board[snake.first!.x][snake.first!.y] = .snake(.southWest, .west)
+            board[firstSnake.x][firstSnake.y] = .snake(.southWest, .west)
         } else if tuple.1 == .south {
-            board[snake.first!.x][snake.first!.y] = .snake(.northWest, .west)
+            board[firstSnake.x][firstSnake.y] = .snake(.northWest, .west)
         }
     }
     
@@ -192,12 +192,12 @@ class GameSystem {
         guard canChangeDirection else { return }
         canChangeDirection = false
         
-        let tuple = getOrientationAndDirectionOfSnakeBody(snakeBody: snake.first!)!
+        let tuple = getOrientationAndDirectionOfSnakeBody(snakeBody: firstSnake)!
         guard tuple.1 != .east && tuple.1 != .west else { return }
         if tuple.1 == .north {
-            board[snake.first!.x][snake.first!.y] = .snake(.southEast, .east)
+            board[firstSnake.x][firstSnake.y] = .snake(.southEast, .east)
         } else if tuple.1 == .south {
-            board[snake.first!.x][snake.first!.y] = .snake(.northEast, .east)
+            board[firstSnake.x][firstSnake.y] = .snake(.northEast, .east)
         }
     }
     
