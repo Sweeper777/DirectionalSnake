@@ -21,6 +21,11 @@ class GameScene: SKScene, GameSystemDelegate {
         scoreDisplay = childNode(withName: "scoreDisplay") as! SKSpriteNode
         scoreLabel = scoreDisplay.childNode(withName: "scoreValueLabel") as! SKLabelNode
         
+        let viewCoords = CGPoint(x: 0, y: 11)
+        let sceneCoords = view.convert(viewCoords, to: self)
+        newGameButton.position = CGPoint(x: newGameButton.position.x, y: sceneCoords.y)
+        highscoreDisplay.position = CGPoint(x: highscoreDisplay.position.x, y: sceneCoords.y)
+        scoreDisplay.position = CGPoint(x: scoreDisplay.position.x, y: sceneCoords.y)
         initializeNewGame()
     }
     
