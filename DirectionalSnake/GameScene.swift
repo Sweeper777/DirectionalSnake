@@ -19,9 +19,20 @@ class GameScene: SKScene, GameSystemDelegate {
     }
     
     func initializeNewGame() {
+        func calculateBoardSize() -> CGFloat {
+            let startPointInScene = self.view!.convert(CGPoint.zero, to: self)
+            let endPointInScene = self.view!.convert(CGPoint(x: 0, y: self.view!.h), to: self)
+            let actualHeightOfScene = abs(startPointInScene.y - endPointInScene.y)
+            if actualHeightOfScene < 881 {
+                return actualHeightOfScene - 131
+            } else {
+                return 750
+            }
+        }
         view!.gestureRecognizers?.removeAll()
         
-        gameSystem = GameSystem(boardSize: 750)
+        let boardSize = calculateBoardSize()
+        gameSystem = GameSystem(boardSize: boardSize)
         gameSystem.delegate = self
         bg.addChild(gameSystem.boardNode)
         
