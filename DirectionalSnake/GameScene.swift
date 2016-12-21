@@ -85,5 +85,7 @@ class GameScene: SKScene, GameSystemDelegate {
         view!.addGestureRecognizer(downRecog)
         view!.addGestureRecognizer(leftRecog)
         view!.addGestureRecognizer(rightRecog)
+        
+        gameSystem.startGame()
     }
 }
