@@ -29,12 +29,28 @@ class GameScene: SKScene, GameSystemDelegate {
                 return 750
             }
         }
+        
+        func calculateBoardPosition(boardSize: CGFloat) -> CGPoint {
+            let startPointInScene = self.view!.convert(CGPoint.zero, to: self)
+            let endPointInScene = self.view!.convert(CGPoint(x: 0, y: self.view!.h), to: self)
+            let actualHeightOfScene = abs(startPointInScene.y - endPointInScene.y)
+            if boardSize < 750 {
+                return CGPoint(x: 0, y: -(actualHeightOfScene / 2 - boardSize / 2 - 11))
+            } else if actualHeightOfScene / 2 >= 120 {
+                return CGPoint.zero
+            } else {
+                return CGPoint(x: 0, y: -(120 - actualHeightOfScene / 2))
+            }
+        }
+        
         view!.gestureRecognizers?.removeAll()
         
         let boardSize = calculateBoardSize()
         gameSystem = GameSystem(boardSize: boardSize)
         gameSystem.delegate = self
-        bg.addChild(gameSystem.boardNode)
+        let boardPos = calculateBoardPosition(boardSize: boardSize)
+        gameSystem.boardNode.position = CGPoint(x: boardPos.x - boardSize, y: boardPos.y - boardSize)
+        self.addChild(gameSystem.boardNode)
         
         upRecog = UISwipeGestureRecognizer(target: gameSystem, action: #selector(GameSystem.swipedUp))
         upRecog.direction = .up
