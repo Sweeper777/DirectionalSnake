@@ -142,6 +142,8 @@ class GameSystem {
     }
     
     @objc func swipedUp() {
+        guard let firstSnake = snake.first else { return }
+        
         guard canChangeDirection else { return }
         canChangeDirection = false
         
@@ -155,6 +157,8 @@ class GameSystem {
     }
     
     @objc func swipedDown() {
+         guard let firstSnake = snake.first else { return }
+        
         guard canChangeDirection else { return }
         canChangeDirection = false
         
@@ -168,6 +172,8 @@ class GameSystem {
     }
     
     @objc func swipedLeft() {
+        guard let firstSnake = snake.first else { return }
+        
         guard canChangeDirection else { return }
         canChangeDirection = false
         
@@ -181,6 +187,8 @@ class GameSystem {
     }
     
     @objc func swipedRight() {
+        guard let firstSnake = snake.first else { return }
+        
         guard canChangeDirection else { return }
         canChangeDirection = false
         
