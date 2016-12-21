@@ -1,7 +1,7 @@
 import SpriteKit
+import EZSwiftExtensions
 
 class GameScene: SKScene, GameSystemDelegate {
-    var bg: SKSpriteNode!
     var gameSystem: GameSystem!
     var upRecog: UISwipeGestureRecognizer!
     var downRecog: UISwipeGestureRecognizer!
@@ -9,7 +9,6 @@ class GameScene: SKScene, GameSystemDelegate {
     var rightRecog: UISwipeGestureRecognizer!
     
     override func didMove(to view: SKView) {
-        bg = self.childNode(withName: "bg") as! SKSpriteNode
         
         initializeNewGame()
     }
