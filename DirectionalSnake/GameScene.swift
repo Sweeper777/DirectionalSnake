@@ -65,7 +65,8 @@ class GameScene: SKScene, GameSystemDelegate {
         gameSystem = GameSystem(boardSize: boardSize)
         gameSystem.delegate = self
         let boardPos = calculateBoardPosition(boardSize: boardSize)
-        gameSystem.boardNode.position = CGPoint(x: boardPos.x - boardSize, y: boardPos.y - boardSize)
+        let actualBoardSize = gameSystem.boardNode.frame.width
+        gameSystem.boardNode.position = CGPoint(x: boardPos.x - actualBoardSize / 2, y: boardPos.y - actualBoardSize / 2)
         self.addChild(gameSystem.boardNode)
         
         upRecog = UISwipeGestureRecognizer(target: gameSystem, action: #selector(GameSystem.swipedUp))
