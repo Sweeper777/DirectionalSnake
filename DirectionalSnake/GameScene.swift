@@ -8,7 +8,18 @@ class GameScene: SKScene, GameSystemDelegate {
     var leftRecog: UISwipeGestureRecognizer!
     var rightRecog: UISwipeGestureRecognizer!
     
+    var newGameButton: SKSpriteNode!
+    var highscoreDisplay: SKSpriteNode!
+    var highscoreLabel: SKLabelNode!
+    var scoreDisplay: SKSpriteNode!
+    var scoreLabel: SKLabelNode!
+    
     override func didMove(to view: SKView) {
+        newGameButton = childNode(withName: "newGameButton") as! SKSpriteNode
+        highscoreDisplay = childNode(withName: "highscoreDisplay") as! SKSpriteNode
+        highscoreLabel = highscoreDisplay.childNode(withName: "highscoreValueLabel") as! SKLabelNode
+        scoreDisplay = childNode(withName: "scoreDisplay") as! SKSpriteNode
+        scoreLabel = scoreDisplay.childNode(withName: "scoreValueLabel") as! SKLabelNode
         
         initializeNewGame()
     }
