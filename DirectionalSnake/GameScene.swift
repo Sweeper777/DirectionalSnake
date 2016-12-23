@@ -27,6 +27,9 @@ class GameScene: SKScene, GameSystemDelegate {
         newGameButton.position = CGPoint(x: newGameButton.position.x, y: sceneCoords.y)
         highscoreDisplay.position = CGPoint(x: highscoreDisplay.position.x, y: sceneCoords.y)
         scoreDisplay.position = CGPoint(x: scoreDisplay.position.x, y: sceneCoords.y)
+        
+        newGameButton.setTarget(self, selector: #selector(newGameTapped))
+        
         initializeNewGame()
     }
     
@@ -88,5 +91,9 @@ class GameScene: SKScene, GameSystemDelegate {
         view!.addGestureRecognizer(rightRecog)
         
         gameSystem.startGame()
+    }
+    
+    func newGameTapped() {
+        print("tapped")
     }
 }
