@@ -14,6 +14,13 @@ class ButtonNode: SKSpriteNode {
     }
     
     var originalColor: UIColor!
+    var target: AnyObject?
+    var selector: Selector?
+    
+    func setTarget(_ target: AnyObject, selector: Selector) {
+        self.target = target
+        self.selector = selector
+    }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         if texture == nil {
@@ -34,6 +41,10 @@ class ButtonNode: SKSpriteNode {
             color = originalColor
         } else {
             run(SKAction.colorize(withColorBlendFactor: 0, duration: 0))
+        }
+        
+        if let target = self.target, let selector = self.selector {
+            _ = target.perform(selector)
         }
     }
     
