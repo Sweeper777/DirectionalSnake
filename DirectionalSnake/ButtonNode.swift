@@ -43,6 +43,13 @@ class ButtonNode: SKSpriteNode {
             run(SKAction.colorize(withColorBlendFactor: 0, duration: 0))
         }
         
+        guard touches.contains(where: { (touch) -> Bool in
+            let location = touch.location(in: self)
+            let correctedLocation = CGPoint(x: location.x, y: -location.y)
+            print(correctedLocation)
+            return self.frame.width > correctedLocation.x && self.frame.height > correctedLocation.y
+        }) else { return }
+        
         if let target = self.target, let selector = self.selector {
             _ = target.perform(selector)
         }
