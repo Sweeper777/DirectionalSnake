@@ -12,11 +12,14 @@ class ButtonNode: SKSpriteNode {
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        run(SKAction.colorize(with: UIColor.black, colorBlendFactor: 0.5, duration: 0))
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        run(SKAction.colorize(withColorBlendFactor: 0, duration: 0))
     }
     
     override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
+        run(SKAction.colorize(withColorBlendFactor: 0, duration: 0))
     }
 }
