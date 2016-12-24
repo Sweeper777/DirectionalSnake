@@ -94,5 +94,6 @@ class GameScene: SKScene, GameSystemDelegate {
     
     func newGameTapped() {
         gameSystem.startGame()
+        newGameButton.run(SKAction.fadeOut(withDuration: 0.2))
     }
 }
