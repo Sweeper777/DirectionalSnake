@@ -29,13 +29,12 @@ class GameScene: SKScene, GameSystemDelegate {
         scoreDisplay.position = CGPoint(x: scoreDisplay.position.x, y: sceneCoords.y)
         
         newGameButton.setTarget(self, selector: #selector(newGameTapped))
-        
-        initializeNewGame()
     }
     
     func didGameOver(gameSystem: GameSystem) {
         self.gameSystem.boardNode.children.forEach { $0.removeFromParent() }
         self.gameSystem = nil
+        newGameButton.run(SKAction.fadeIn(withDuration: 0.2))
     }
     
     func initializeNewGame() {
@@ -62,6 +61,7 @@ class GameScene: SKScene, GameSystemDelegate {
                 return CGPoint(x: 0, y: -(120 - actualHeightOfScene / 2))
             }
         }
+        childNode(withName: "gameBoard")?.removeFromParent()
         
         view!.gestureRecognizers?.removeAll()
         
@@ -93,6 +93,7 @@ class GameScene: SKScene, GameSystemDelegate {
     }
     
     func newGameTapped() {
+        initializeNewGame()
         gameSystem.startGame()
         newGameButton.run(SKAction.fadeOut(withDuration: 0.2))
     }

@@ -19,6 +19,7 @@ class GameSystem {
         boardNode.zPosition = 999
         boardNode.position = CGPoint(x: snakeSize * -10, y: snakeSize * -10)
         boardNode.anchorPoint = CGPoint.zero
+        boardNode.name = "gameBoard"
     }
     
     func startGame() {
