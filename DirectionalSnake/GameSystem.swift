@@ -9,6 +9,7 @@ class GameSystem {
     var snake: [SnakeBody] = []
     var currentFood: Food?
     var canChangeDirection = true
+    var hasStarted = false
     weak var delegate: GameSystemDelegate?
     
     init(boardSize: CGFloat) {
@@ -21,6 +22,8 @@ class GameSystem {
     }
     
     func startGame() {
+        guard !hasStarted else { return }
+        
         snake.append(SnakeBody(x: 0, y: 0, nodeSize: snakeSize, orientation: .northEast))
         boardNode.addChild(snake[0].node)
         
@@ -30,6 +33,8 @@ class GameSystem {
         boardNode.run(SKAction.repeatForever(SKAction.sequence([SKAction.wait(forDuration: 0.5), runCodeAction])))
         
         generateFood()
+        
+        hasStarted = true
     }
     
     func generateFood() {
