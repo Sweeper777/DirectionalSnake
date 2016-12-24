@@ -31,7 +31,7 @@ class GameSystem {
         board[0][0] = .snake(.northEast, .east)
         
         let runCodeAction = SKAction.run { [unowned self] in self.moveWholeSnake() }
-        boardNode.run(SKAction.repeatForever(SKAction.sequence([SKAction.wait(forDuration: 0.5), runCodeAction])))
+        boardNode.run(SKAction.repeatForever(SKAction.sequence([SKAction.wait(forDuration: 0.25), runCodeAction])))
         
         generateFood()
         
