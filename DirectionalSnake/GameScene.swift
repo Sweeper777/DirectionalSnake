@@ -90,10 +90,9 @@ class GameScene: SKScene, GameSystemDelegate {
         view!.addGestureRecognizer(leftRecog)
         view!.addGestureRecognizer(rightRecog)
         
-        gameSystem.startGame()
     }
     
     func newGameTapped() {
-        print("tapped")
+        gameSystem.startGame()
     }
 }
