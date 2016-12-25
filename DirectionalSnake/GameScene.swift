@@ -35,6 +35,7 @@ class GameScene: SKScene, GameSystemDelegate {
     func didGameOver(gameSystem: GameSystem) {
         self.gameSystem.boardNode.children.forEach { $0.removeFromParent() }
         self.gameSystem = nil
+        scoreLabel.text = "0"
         newGameButton.run(SKAction.fadeIn(withDuration: 0.2))
     }
     
