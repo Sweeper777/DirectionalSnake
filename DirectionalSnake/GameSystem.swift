@@ -10,6 +10,7 @@ class GameSystem {
     var currentFood: Food?
     var canChangeDirection = true
     var hasStarted = false
+    var highscoreUpdated = false
     weak var delegate: GameSystemDelegate?
     
     var score = 0 {
@@ -17,6 +18,7 @@ class GameSystem {
             delegate?.scoreDidChange(newScore: newValue)
             if newValue > highscore {
                 highscore = newValue
+                highscoreUpdated = true
             }
         }
     }
