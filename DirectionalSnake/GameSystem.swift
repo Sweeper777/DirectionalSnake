@@ -244,8 +244,12 @@ class GameSystem {
         for child in boardNode.children.dropLast() {
             child.run(SKAction.fadeOut(withDuration: 1))
         }
-        boardNode.children.last!.run(SKAction.sequence([SKAction.fadeOut(withDuration: 1), SKAction.run { [unowned self] in self.delegate?.didGameOver(gameSystem: self) }]))
-        
+        boardNode.children.last!.run(SKAction.sequence([SKAction.fadeOut(withDuration: 1), SKAction.run {
+                [unowned self] in self.delegate?.didGameOver(gameSystem: self)
+            }]))
+    }
+    
+    func showGameOverScreen() {
         gameOverLabel.run(SKAction.fadeIn(withDuration: 0.2))
     }
 }
