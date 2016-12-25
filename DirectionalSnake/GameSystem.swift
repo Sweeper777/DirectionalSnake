@@ -13,6 +13,8 @@ class GameSystem {
     var highscoreUpdated = false
     weak var delegate: GameSystemDelegate?
     
+    var gameOverLabel: SKLabelNode!
+    
     var score = 0 {
         willSet {
             delegate?.scoreDidChange(newScore: newValue)
@@ -37,6 +39,17 @@ class GameSystem {
         boardNode.position = CGPoint(x: snakeSize * -10, y: snakeSize * -10)
         boardNode.anchorPoint = CGPoint.zero
         boardNode.name = "gameBoard"
+        
+        gameOverLabel = SKLabelNode(text: "GAME OVER")
+        gameOverLabel.alpha = 0
+        gameOverLabel.fontName = "Helvetica"
+        gameOverLabel.fontColor = UIColor.black
+        gameOverLabel.fontSize = 60
+        let x = boardNode.frame.width / 2
+        let y = boardNode.frame.height - 100
+        gameOverLabel.zPosition = 1000
+        gameOverLabel.position = CGPoint(x: x, y: y)
+        boardNode.addChild(gameOverLabel)
     }
     
     func startGame() {
@@ -232,5 +245,7 @@ class GameSystem {
             child.run(SKAction.fadeOut(withDuration: 1))
         }
         boardNode.children.last!.run(SKAction.sequence([SKAction.fadeOut(withDuration: 1), SKAction.run { [unowned self] in self.delegate?.didGameOver(gameSystem: self) }]))
+        
+        gameOverLabel.run(SKAction.fadeIn(withDuration: 0.2))
     }
 }
