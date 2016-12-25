@@ -27,6 +27,7 @@ class GameScene: SKScene, GameSystemDelegate {
         newGameButton.position = CGPoint(x: newGameButton.position.x, y: sceneCoords.y)
         highscoreDisplay.position = CGPoint(x: highscoreDisplay.position.x, y: sceneCoords.y)
         scoreDisplay.position = CGPoint(x: scoreDisplay.position.x, y: sceneCoords.y)
+        highscoreLabel.text = String(UserDefaults.standard.integer(forKey: "highscore"))
         
         newGameButton.setTarget(self, selector: #selector(newGameTapped))
     }
