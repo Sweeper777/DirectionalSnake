@@ -12,6 +12,21 @@ class GameSystem {
     var hasStarted = false
     weak var delegate: GameSystemDelegate?
     
+    var score = 0 {
+        willSet {
+            delegate?.scoreDidChange(newScore: newValue)
+            if newValue > highscore {
+                highscore = newValue
+            }
+        }
+    }
+    
+    var highscore = UserDefaults.standard.integer(forKey: "highscore") {
+        willSet {
+            delegate?.highscoreDidChange(newHighscore: newValue)
+        }
+    }
+    
     init(boardSize: CGFloat) {
         snakeSize = floor(boardSize / 20)
         board = [[BoardState]](repeating: [BoardState](repeating: .empty, count: 20), count: 20)
