@@ -155,6 +155,7 @@ class GameSystem {
             snake.insert(SnakeBody(x: finalX, y: finalY, nodeSize: snakeSize, orientation: .horizontal), at: 0)
             boardNode.addChild(snake.first!.node)
         }
+        score += 1
     }
     
     func getOrientationAndDirectionOfSnakeBody(snakeBody: SnakeBody) -> (Orientation, Direction)? {
