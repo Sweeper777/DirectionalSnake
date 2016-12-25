@@ -37,6 +37,14 @@ class GameScene: SKScene, GameSystemDelegate {
         newGameButton.run(SKAction.fadeIn(withDuration: 0.2))
     }
     
+    func scoreDidChange(newScore: Int) {
+        scoreLabel.text = "\(newScore)"
+    }
+    
+    func highscoreDidChange(newHighscore: Int) {
+        highscoreLabel.text = "\(newHighscore)"
+    }
+    
     func initializeNewGame() {
         func calculateBoardSize() -> CGFloat {
             let startPointInScene = self.view!.convert(CGPoint.zero, to: self)
