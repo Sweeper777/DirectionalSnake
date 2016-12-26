@@ -13,7 +13,7 @@ class GameSystem {
     var highscoreUpdated = false
     weak var delegate: GameSystemDelegate?
     
-    var gameOverLabel: SKLabelNode!
+    var gameOverLabel: SKSpriteNode!
     
     var score = 0 {
         willSet {
@@ -40,11 +40,8 @@ class GameSystem {
         boardNode.anchorPoint = CGPoint.zero
         boardNode.name = "gameBoard"
         
-        gameOverLabel = SKLabelNode(text: "GAME OVER")
+        gameOverLabel = SKSpriteNode(imageNamed: "gameOverBanner")
         gameOverLabel.alpha = 0
-        gameOverLabel.fontName = "Helvetica-Bold"
-        gameOverLabel.fontColor = UIColor.black
-        gameOverLabel.fontSize = 100
         let x = boardNode.frame.width / 2
         let y = boardNode.frame.height - 300
         gameOverLabel.zPosition = 1000
