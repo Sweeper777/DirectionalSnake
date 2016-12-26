@@ -14,6 +14,7 @@ class GameSystem {
     weak var delegate: GameSystemDelegate?
     
     var gameOverLabel: SKSpriteNode!
+    var newHighscoreLabel: SKSpriteNode!
     
     var score = 0 {
         willSet {
@@ -47,6 +48,12 @@ class GameSystem {
         gameOverLabel.zPosition = 1000
         gameOverLabel.position = CGPoint(x: x, y: y)
         boardNode.addChild(gameOverLabel)
+        
+        newHighscoreLabel = SKSpriteNode(imageNamed: "newHighscoreBanner")
+        newHighscoreLabel.alpha = 0
+        newHighscoreLabel.position = CGPoint(x: boardNode.frame.width / 2, y: boardNode.frame.height / 2 - 100)
+        newHighscoreLabel.zPosition = 1000
+        boardNode.addChild(newHighscoreLabel)
     }
     
     func startGame() {
@@ -248,5 +255,6 @@ class GameSystem {
     
     func showGameOverScreen() {
         gameOverLabel.run(SKAction.fadeIn(withDuration: 0.2))
+        newHighscoreLabel.run(SKAction.fadeIn(withDuration: 0.2))
     }
 }
