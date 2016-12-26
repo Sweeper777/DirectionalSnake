@@ -256,6 +256,9 @@ class GameSystem {
     
     func showGameOverScreen() {
         gameOverLabel.run(SKAction.fadeIn(withDuration: 0.2))
-        newHighscoreLabel.run(SKAction.fadeIn(withDuration: 0.2))
+        
+        if highscoreUpdated {
+            newHighscoreLabel.run(SKAction.fadeIn(withDuration: 0.2))
+        }
     }
 }
