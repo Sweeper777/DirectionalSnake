@@ -28,6 +28,7 @@ class GameSystem {
     
     var highscore = UserDefaults.standard.integer(forKey: "highscore") {
         willSet {
+            UserDefaults.standard.set(newValue, forKey: "highscore")
             delegate?.highscoreDidChange(newHighscore: newValue)
         }
     }
