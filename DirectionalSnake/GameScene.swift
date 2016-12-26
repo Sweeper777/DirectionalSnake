@@ -36,7 +36,6 @@ class GameScene: SKScene, GameSystemDelegate {
         
         gameSystem.showGameOverScreen()
         self.gameSystem = nil
-        scoreLabel.text = "0"
         newGameButton.run(SKAction.fadeIn(withDuration: 0.2))
     }
     
@@ -73,6 +72,7 @@ class GameScene: SKScene, GameSystemDelegate {
             }
         }
         childNode(withName: "gameBoard")?.removeFromParent()
+        scoreLabel.text = "0"
         
         view!.gestureRecognizers?.removeAll()
         
