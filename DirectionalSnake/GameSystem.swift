@@ -42,11 +42,11 @@ class GameSystem {
         
         gameOverLabel = SKLabelNode(text: "GAME OVER")
         gameOverLabel.alpha = 0
-        gameOverLabel.fontName = "Helvetica"
+        gameOverLabel.fontName = "Helvetica-Bold"
         gameOverLabel.fontColor = UIColor.black
-        gameOverLabel.fontSize = 60
+        gameOverLabel.fontSize = 100
         let x = boardNode.frame.width / 2
-        let y = boardNode.frame.height - 100
+        let y = boardNode.frame.height - 300
         gameOverLabel.zPosition = 1000
         gameOverLabel.position = CGPoint(x: x, y: y)
         boardNode.addChild(gameOverLabel)
