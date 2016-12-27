@@ -105,13 +105,13 @@ class GameSystem {
             var canEatFood = false
             switch getOrientationAndDirectionOfSnakeBody(snakeBody: snake.first!)!.1 {
             case .north:
-                canEatFood = orientation == .southEast || orientation == .southWest
+                canEatFood = orientation == .southEast || orientation == .southWest || orientation == .vertical
             case .south:
-                canEatFood = orientation == .northEast || orientation == .northWest
+                canEatFood = orientation == .northEast || orientation == .northWest || orientation == .vertical
             case .east:
-                canEatFood = orientation == .southWest || orientation == .northWest
+                canEatFood = orientation == .southWest || orientation == .northWest || orientation == .horizontal
             case .west:
-                canEatFood = orientation == .southEast || orientation == .northEast
+                canEatFood = orientation == .southEast || orientation == .northEast || orientation == .horizontal
             }
             if !canEatFood {
                 gameOver()
