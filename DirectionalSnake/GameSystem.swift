@@ -83,7 +83,7 @@ class GameSystem {
             }
         }
         if let coordinate = coordinates.randomItem() {
-            let foodOrientation: Orientation = Bool.random() ? .vertical : .horizontal
+            let foodOrientation: Orientation = [Orientation.horizontal, .northEast, .northWest, .southEast, .southWest, .vertical].randomItem()!
             currentFood = Food(x: coordinate.0, y: coordinate.1, nodeSize: snakeSize, orientation: foodOrientation)
             boardNode.addChild(currentFood!.node)
             board[coordinate.0][coordinate.1] = .food(foodOrientation)

@@ -15,8 +15,23 @@ class Food {
         node.size = CGSize(width: nodeSize, height: nodeSize)
         node.zPosition = 1000
         
-        if orientation == .vertical {
+        switch orientation {
+        case .horizontal, .vertical:
+            node.texture = SKTexture(imageNamed: "straightSnake")
+        default:
+            node.texture = SKTexture(imageNamed: "angleSnake")
+        }
+        
+        node.zRotation = 0
+        switch orientation {
+        case .vertical, .southWest:
             node.zRotation = CGFloat(M_PI / 2)
+        case .southEast:
+            node.zRotation = CGFloat(M_PI)
+        case .northEast:
+            node.zRotation = CGFloat(M_PI / 2 * 3)
+        default:
+            break
         }
     }
 }
