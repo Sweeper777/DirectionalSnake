@@ -17,9 +17,9 @@ class Food {
         
         switch orientation {
         case .horizontal, .vertical:
-            node.texture = SKTexture(imageNamed: "straightSnake")
+            node.texture = SKTexture(imageNamed: "food")
         default:
-            node.texture = SKTexture(imageNamed: "angleSnake")
+            node.texture = SKTexture(imageNamed: "angleFood")
         }
         
         node.zRotation = 0
