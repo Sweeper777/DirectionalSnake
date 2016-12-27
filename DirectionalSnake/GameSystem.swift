@@ -102,14 +102,18 @@ class GameSystem {
         }
         self.board[lastX][lastY] = .empty
         if case .food(let orientation) = moveResult {
-            let snakeOrientation: Orientation
+            var canEatFood = false
             switch getOrientationAndDirectionOfSnakeBody(snakeBody: snake.first!)!.1 {
-            case .north, .south:
-                snakeOrientation = .vertical
-            case .east, .west:
-                snakeOrientation = .horizontal
+            case .north:
+                canEatFood = orientation == .southEast || orientation == .southWest
+            case .south:
+                canEatFood = orientation == .northEast || orientation == .northWest
+            case .east:
+                canEatFood = orientation == .southWest || orientation == .northWest
+            case .west:
+                canEatFood = orientation == .southEast || orientation == .northEast
             }
-            if snakeOrientation != orientation {
+            if !canEatFood {
                 gameOver()
                 return
             }
