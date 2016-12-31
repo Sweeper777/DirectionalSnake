@@ -11,6 +11,7 @@ class GameSystem {
     var canChangeDirection = true
     var hasStarted = false
     var highscoreUpdated = false
+    var justAteFood = false
     weak var delegate: GameSystemDelegate?
     
     var gameOverLabel: SKSpriteNode!
@@ -65,7 +66,16 @@ class GameSystem {
         
         board[0][0] = .snake(.northEast, .east)
         
-        let runCodeAction = SKAction.run { [unowned self] in self.moveWholeSnake() }
+        let runCodeAction = SKAction.run {
+            [unowned self] in
+            if self.justAteFood {
+                self.increaseSnakeLength()
+                self.justAteFood = false
+                return
+            }
+            
+            self.moveWholeSnake()
+        }
         boardNode.run(SKAction.repeatForever(SKAction.sequence([SKAction.wait(forDuration: 0.25), runCodeAction])))
         
         generateFood()
@@ -119,7 +129,7 @@ class GameSystem {
             }
             
             currentFood!.node.removeFromParent()
-            increaseSnakeLength()
+            justAteFood = true
             generateFood()
         } else if case .snake = moveResult {
             gameOver()
