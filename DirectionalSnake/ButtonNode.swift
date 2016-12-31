@@ -46,7 +46,7 @@ class ButtonNode: SKSpriteNode {
         guard touches.contains(where: { (touch) -> Bool in
             let location = touch.location(in: self)
             let correctedLocation = CGPoint(x: location.x, y: -location.y)
-            return self.frame.width > correctedLocation.x && self.frame.height > correctedLocation.y
+            return self.frame.width > correctedLocation.x && self.frame.height * 2 > correctedLocation.y
         }) else { return }
         
         if let target = self.target, let selector = self.selector {
