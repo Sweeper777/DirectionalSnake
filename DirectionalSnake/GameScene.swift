@@ -9,6 +9,7 @@ class GameScene: SKScene, GameSystemDelegate {
     var rightRecog: UISwipeGestureRecognizer!
     
     var newGameButton: ButtonNode!
+    var pauseButton: ButtonNode!
     var highscoreDisplay: SKSpriteNode!
     var highscoreLabel: SKLabelNode!
     var scoreDisplay: SKSpriteNode!
@@ -17,6 +18,7 @@ class GameScene: SKScene, GameSystemDelegate {
     override func didMove(to view: SKView) {
         isUserInteractionEnabled = false
         newGameButton = childNode(withName: "newGameButton") as! ButtonNode
+        pauseButton = childNode(withName: "pauseButton") as! ButtonNode
         highscoreDisplay = childNode(withName: "highscoreDisplay") as! SKSpriteNode
         highscoreLabel = highscoreDisplay.childNode(withName: "highscoreValueLabel") as! SKLabelNode
         scoreDisplay = childNode(withName: "scoreDisplay") as! SKSpriteNode
@@ -25,6 +27,7 @@ class GameScene: SKScene, GameSystemDelegate {
         let viewCoords = CGPoint(x: 0, y: 11)
         let sceneCoords = view.convert(viewCoords, to: self)
         newGameButton.position = CGPoint(x: newGameButton.position.x, y: sceneCoords.y)
+        pauseButton.position = CGPoint(x: pauseButton.position.x, y: sceneCoords.y)
         highscoreDisplay.position = CGPoint(x: highscoreDisplay.position.x, y: sceneCoords.y)
         scoreDisplay.position = CGPoint(x: scoreDisplay.position.x, y: sceneCoords.y)
         highscoreLabel.text = String(UserDefaults.standard.integer(forKey: "highscore"))
