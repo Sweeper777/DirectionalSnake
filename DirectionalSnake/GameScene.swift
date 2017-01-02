@@ -35,6 +35,7 @@ class GameScene: SKScene, GameSystemDelegate {
         highscoreLabel.text = String(UserDefaults.standard.integer(forKey: "highscore"))
         
         newGameButton.setTarget(self, selector: #selector(newGameTapped))
+        pauseButton.setTarget(self, selector: #selector(pauseTapped))
     }
     
     func didGameOver(gameSystem: GameSystem) {
@@ -112,5 +113,16 @@ class GameScene: SKScene, GameSystemDelegate {
         initializeNewGame()
         gameSystem.startGame()
         newGameButton.run(SKAction.fadeOut(withDuration: 0.2))
+    }
+    
+    func pauseTapped() {
+        guard let gameSystem = self.gameSystem else { return }
+        guard gameSystem.hasStarted else { return }
+        if gameSystem.isPaused {
+            pauseLabel.text = "PAUSE"
+        } else {
+            pauseLabel.text = "RESUME"
+        }
+        gameSystem.pause()
     }
 }
