@@ -10,6 +10,7 @@ class GameScene: SKScene, GameSystemDelegate {
     
     var newGameButton: ButtonNode!
     var pauseButton: ButtonNode!
+    var pauseLabel: SKLabelNode!
     var highscoreDisplay: SKSpriteNode!
     var highscoreLabel: SKLabelNode!
     var scoreDisplay: SKSpriteNode!
@@ -19,6 +20,7 @@ class GameScene: SKScene, GameSystemDelegate {
         isUserInteractionEnabled = false
         newGameButton = childNode(withName: "newGameButton") as! ButtonNode
         pauseButton = childNode(withName: "pauseButton") as! ButtonNode
+        pauseLabel = pauseButton.childNode(withName: "pauseLabel") as! SKLabelNode
         highscoreDisplay = childNode(withName: "highscoreDisplay") as! SKSpriteNode
         highscoreLabel = highscoreDisplay.childNode(withName: "highscoreValueLabel") as! SKLabelNode
         scoreDisplay = childNode(withName: "scoreDisplay") as! SKSpriteNode
