@@ -12,6 +12,7 @@ class GameSystem {
     var hasStarted = false
     var highscoreUpdated = false
     var justAteFood = false
+    var isPaused = false
     weak var delegate: GameSystemDelegate?
     
     var gameOverLabel: SKSpriteNode!
@@ -81,6 +82,16 @@ class GameSystem {
         generateFood()
         
         hasStarted = true
+    }
+    
+    func pause() {
+        if isPaused {
+            isPaused = false
+            boardNode.isPaused = false
+        } else {
+            isPaused = true
+            boardNode.isPaused = true
+        }
     }
     
     func generateFood() {
