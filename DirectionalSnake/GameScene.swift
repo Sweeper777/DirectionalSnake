@@ -33,6 +33,7 @@ class GameScene: SKScene, GameSystemDelegate {
         highscoreDisplay.position = CGPoint(x: highscoreDisplay.position.x, y: sceneCoords.y)
         scoreDisplay.position = CGPoint(x: scoreDisplay.position.x, y: sceneCoords.y)
         highscoreLabel.text = String(UserDefaults.standard.integer(forKey: "highscore"))
+        pauseButton.alpha = 0
         
         newGameButton.setTarget(self, selector: #selector(newGameTapped))
         pauseButton.setTarget(self, selector: #selector(pauseTapped))
@@ -43,6 +44,7 @@ class GameScene: SKScene, GameSystemDelegate {
         gameSystem.showGameOverScreen()
         self.gameSystem = nil
         newGameButton.run(SKAction.fadeIn(withDuration: 0.2))
+        pauseButton.run(SKAction.fadeOut(withDuration: 0.2))
     }
     
     func scoreDidChange(newScore: Int) {
@@ -113,6 +115,7 @@ class GameScene: SKScene, GameSystemDelegate {
         initializeNewGame()
         gameSystem.startGame()
         newGameButton.run(SKAction.fadeOut(withDuration: 0.2))
+        pauseButton.run(SKAction.fadeIn(withDuration: 0.2))
     }
     
     func pauseTapped() {
