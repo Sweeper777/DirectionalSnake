@@ -218,8 +218,10 @@ class GameSystem {
         guard tuple.1 != .south && tuple.1 != .north else { return }
         if tuple.1 == .east {
             board[firstSnake.x][firstSnake.y] = .snake(.northWest, .north)
+            firstSnake.updateOrientation(to: .northWest)
         } else if tuple.1 == .west {
             board[firstSnake.x][firstSnake.y] = .snake(.northEast, .north)
+            firstSnake.updateOrientation(to: .northEast)
         }
     }
     
@@ -233,8 +235,10 @@ class GameSystem {
         guard tuple.1 != .south && tuple.1 != .north else { return }
         if tuple.1 == .east {
             board[firstSnake.x][firstSnake.y] = .snake(.southWest, .south)
+            firstSnake.updateOrientation(to: .southWest)
         } else if tuple.1 == .west {
             board[firstSnake.x][firstSnake.y] = .snake(.southEast, .south)
+            firstSnake.updateOrientation(to: .southEast)
         }
     }
     
@@ -248,8 +252,10 @@ class GameSystem {
         guard tuple.1 != .east && tuple.1 != .west else { return }
         if tuple.1 == .north {
             board[firstSnake.x][firstSnake.y] = .snake(.southWest, .west)
+            firstSnake.updateOrientation(to: .southWest)
         } else if tuple.1 == .south {
             board[firstSnake.x][firstSnake.y] = .snake(.northWest, .west)
+            firstSnake.updateOrientation(to: .northWest)
         }
     }
     
@@ -263,8 +269,10 @@ class GameSystem {
         guard tuple.1 != .east && tuple.1 != .west else { return }
         if tuple.1 == .north {
             board[firstSnake.x][firstSnake.y] = .snake(.southEast, .east)
+            firstSnake.updateOrientation(to: .southEast)
         } else if tuple.1 == .south {
             board[firstSnake.x][firstSnake.y] = .snake(.northEast, .east)
+            firstSnake.updateOrientation(to: .northEast)
         }
     }
     
