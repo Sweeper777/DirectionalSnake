@@ -9,6 +9,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>GoogleToolboxForMac.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-DirectionalSnake.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -22,7 +27,12 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>020903DC36C535C9D4870CE28171EBA4</key>
+		<key>5DBF1E962009C87DC8F9FDF0808FADC8</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>639EFBFDD208C0EEF69ED7BD3774361D</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -32,7 +42,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>E4B1686FE509C5FC3E8CD780B1515EE7</key>
+		<key>92BB131FA876445E027D20AE23EA7B5F</key>
 		<dict>
 			<key>primary</key>
 			<true/>

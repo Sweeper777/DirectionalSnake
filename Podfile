@@ -7,5 +7,7 @@ target 'DirectionalSnake' do
 
   pod 'EZSwiftExtensions'
   pod 'SwiftRandom'
+  pod 'Firebase/AdMob'
+  pod 'Firebase/Core'
 
 end
