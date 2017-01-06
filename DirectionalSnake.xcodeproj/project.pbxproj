@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		501DD76BC93273909823D705 /* Pods_DirectionalSnake.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E292B74E45440A4EB8FE3B4 /* Pods_DirectionalSnake.framework */; };
+		5A11F9C61E1F9E740010C553 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5A11F9C51E1F9E740010C553 /* GoogleService-Info.plist */; };
 		5A186A421DFE9B4E0023501F /* EZSwiftExtensions.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A186A401DFE9B4E0023501F /* EZSwiftExtensions.framework */; };
 		5A186A431DFE9B4E0023501F /* SwiftRandom.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A186A411DFE9B4E0023501F /* SwiftRandom.framework */; };
 		5A186A451DFEDDF60023501F /* SnakeBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A186A441DFEDDF60023501F /* SnakeBody.swift */; };
@@ -27,6 +28,7 @@
 
 /* Begin PBXFileReference section */
 		3E292B74E45440A4EB8FE3B4 /* Pods_DirectionalSnake.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DirectionalSnake.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5A11F9C51E1F9E740010C553 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		5A186A401DFE9B4E0023501F /* EZSwiftExtensions.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EZSwiftExtensions.framework; path = "../../Library/Developer/Xcode/DerivedData/DirectionalSnake-czzkpeeqchujzadzczlvwkywmspq/Build/Products/Debug-iphonesimulator/EZSwiftExtensions/EZSwiftExtensions.framework"; sourceTree = "<group>"; };
 		5A186A411DFE9B4E0023501F /* SwiftRandom.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftRandom.framework; path = "../../Library/Developer/Xcode/DerivedData/DirectionalSnake-czzkpeeqchujzadzczlvwkywmspq/Build/Products/Debug-iphonesimulator/SwiftRandom/SwiftRandom.framework"; sourceTree = "<group>"; };
 		5A186A441DFEDDF60023501F /* SnakeBody.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnakeBody.swift; sourceTree = "<group>"; };
@@ -102,6 +104,7 @@
 		5A1FD05A1DFDADE40071AE2F /* DirectionalSnake */ = {
 			isa = PBXGroup;
 			children = (
+				5A11F9C51E1F9E740010C553 /* GoogleService-Info.plist */,
 				5A1FD05B1DFDADE40071AE2F /* AppDelegate.swift */,
 				5A1FD05D1DFDADE40071AE2F /* GameScene.sks */,
 				5A1FD0611DFDADE40071AE2F /* GameScene.swift */,
@@ -185,6 +188,7 @@
 			files = (
 				5A1FD0671DFDADE40071AE2F /* Main.storyboard in Resources */,
 				5A1FD05E1DFDADE40071AE2F /* GameScene.sks in Resources */,
+				5A11F9C61E1F9E740010C553 /* GoogleService-Info.plist in Resources */,
 				5A1FD0691DFDADE40071AE2F /* Assets.xcassets in Resources */,
 				5A1FD06C1DFDADE40071AE2F /* LaunchScreen.storyboard in Resources */,
 			);
