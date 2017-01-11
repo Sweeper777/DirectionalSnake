@@ -1,7 +1,8 @@
 import SpriteKit
-import EZSwiftExtensions
+import GoogleMobileAds
+import SwiftyUtils
 
-class GameScene: SKScene, GameSystemDelegate {
+class GameScene: SKScene, GameSystemDelegate, GADInterstitialDelegate {
     var gameSystem: GameSystem!
     var upRecog: UISwipeGestureRecognizer!
     var downRecog: UISwipeGestureRecognizer!
@@ -15,6 +16,8 @@ class GameScene: SKScene, GameSystemDelegate {
     var highscoreLabel: SKLabelNode!
     var scoreDisplay: SKSpriteNode!
     var scoreLabel: SKLabelNode!
+    
+    var interstitialAd: GADInterstitial!
     
     override func didMove(to view: SKView) {
         isUserInteractionEnabled = false
@@ -37,6 +40,12 @@ class GameScene: SKScene, GameSystemDelegate {
         
         newGameButton.setTarget(self, selector: #selector(newGameTapped))
         pauseButton.setTarget(self, selector: #selector(pauseTapped))
+        
+        interstitialAd = GADInterstitial(adUnitID: adUnitId)
+        let request = GADRequest()
+        request.testDevices = [kGADSimulatorID]
+        interstitialAd.load(request)
+        interstitialAd.delegate = self
     }
     
     func didGameOver(gameSystem: GameSystem) {
@@ -45,6 +54,10 @@ class GameScene: SKScene, GameSystemDelegate {
         self.gameSystem = nil
         newGameButton.run(SKAction.fadeIn(withDuration: 0.2))
         pauseButton.run(SKAction.fadeOut(withDuration: 0.2))
+        
+        if Int.random(0, 20) < 7 {
+            interstitialAd.present(fromRootViewController: UIApplication.shared.topViewController()!)
+        }
     }
     
     func scoreDidChange(newScore: Int) {
@@ -55,10 +68,26 @@ class GameScene: SKScene, GameSystemDelegate {
         highscoreLabel.text = "\(newHighscore)"
     }
     
+    func interstitialWillDismissScreen(_ ad: GADInterstitial) {
+        interstitialAd = GADInterstitial(adUnitID: adUnitId)
+        let request = GADRequest()
+        request.testDevices = [kGADSimulatorID]
+        interstitialAd.load(request)
+        interstitialAd.delegate = self
+    }
+    
+    func interstitialWillLeaveApplication(_ ad: GADInterstitial) {
+        interstitialAd = GADInterstitial(adUnitID: adUnitId)
+        let request = GADRequest()
+        request.testDevices = [kGADSimulatorID]
+        interstitialAd.load(request)
+        interstitialAd.delegate = self
+    }
+    
     func initializeNewGame() {
         func calculateBoardSize() -> CGFloat {
             let startPointInScene = self.view!.convert(CGPoint.zero, to: self)
-            let endPointInScene = self.view!.convert(CGPoint(x: 0, y: self.view!.h), to: self)
+            let endPointInScene = self.view!.convert(CGPoint(x: 0, y: self.view!.frame.height), to: self)
             let actualHeightOfScene = abs(startPointInScene.y - endPointInScene.y)
             if actualHeightOfScene < 881 {
                 return actualHeightOfScene - 131
@@ -69,7 +98,7 @@ class GameScene: SKScene, GameSystemDelegate {
         
         func calculateBoardPosition(boardSize: CGFloat) -> CGPoint {
             let startPointInScene = self.view!.convert(CGPoint.zero, to: self)
-            let endPointInScene = self.view!.convert(CGPoint(x: 0, y: self.view!.h), to: self)
+            let endPointInScene = self.view!.convert(CGPoint(x: 0, y: self.view!.frame.height), to: self)
             let actualHeightOfScene = abs(startPointInScene.y - endPointInScene.y)
             if boardSize < 750 {
                 return CGPoint(x: 0, y: -(actualHeightOfScene / 2 - boardSize / 2 - 11))
