@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		501DD76BC93273909823D705 /* Pods_DirectionalSnake.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E292B74E45440A4EB8FE3B4 /* Pods_DirectionalSnake.framework */; };
 		5A11F9C61E1F9E740010C553 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5A11F9C51E1F9E740010C553 /* GoogleService-Info.plist */; };
-		5A186A421DFE9B4E0023501F /* EZSwiftExtensions.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A186A401DFE9B4E0023501F /* EZSwiftExtensions.framework */; };
 		5A186A431DFE9B4E0023501F /* SwiftRandom.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A186A411DFE9B4E0023501F /* SwiftRandom.framework */; };
 		5A186A451DFEDDF60023501F /* SnakeBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A186A441DFEDDF60023501F /* SnakeBody.swift */; };
 		5A186A471DFEE0440023501F /* HelperEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A186A461DFEE0440023501F /* HelperEnums.swift */; };
@@ -24,6 +23,8 @@
 		5A1FD06C1DFDADE40071AE2F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5A1FD06A1DFDADE40071AE2F /* LaunchScreen.storyboard */; };
 		5A220AB21E06806F00348596 /* GameSystemDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A220AB11E06806F00348596 /* GameSystemDelegate.swift */; };
 		5A3A3FEA1E0CAC3900B37C2F /* ButtonNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A3A3FE91E0CAC3900B37C2F /* ButtonNode.swift */; };
+		5A54020B1E25555000A62E83 /* SecretStuff.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A54020A1E25555000A62E83 /* SecretStuff.swift */; };
+		5A54020D1E25578900A62E83 /* SwiftyUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A54020C1E25578900A62E83 /* SwiftyUtils.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +47,8 @@
 		5A1FD06D1DFDADE40071AE2F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5A220AB11E06806F00348596 /* GameSystemDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameSystemDelegate.swift; sourceTree = "<group>"; };
 		5A3A3FE91E0CAC3900B37C2F /* ButtonNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonNode.swift; sourceTree = "<group>"; };
+		5A54020A1E25555000A62E83 /* SecretStuff.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecretStuff.swift; sourceTree = "<group>"; };
+		5A54020C1E25578900A62E83 /* SwiftyUtils.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyUtils.framework; path = "Pods/../build/Debug-iphoneos/SwiftyUtils/SwiftyUtils.framework"; sourceTree = "<group>"; };
 		8555DB47E55D1B8C1310DDA9 /* Pods-DirectionalSnake.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DirectionalSnake.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DirectionalSnake/Pods-DirectionalSnake.debug.xcconfig"; sourceTree = "<group>"; };
 		B7B0CEC616B90AA909333386 /* Pods-DirectionalSnake.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DirectionalSnake.release.xcconfig"; path = "Pods/Target Support Files/Pods-DirectionalSnake/Pods-DirectionalSnake.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -55,7 +58,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5A186A421DFE9B4E0023501F /* EZSwiftExtensions.framework in Frameworks */,
+				5A54020D1E25578900A62E83 /* SwiftyUtils.framework in Frameworks */,
 				5A186A431DFE9B4E0023501F /* SwiftRandom.framework in Frameworks */,
 				501DD76BC93273909823D705 /* Pods_DirectionalSnake.framework in Frameworks */,
 			);
@@ -76,6 +79,7 @@
 		38391F4B209850E4611A0A2E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				5A54020C1E25578900A62E83 /* SwiftyUtils.framework */,
 				5A186A401DFE9B4E0023501F /* EZSwiftExtensions.framework */,
 				5A186A411DFE9B4E0023501F /* SwiftRandom.framework */,
 				3E292B74E45440A4EB8FE3B4 /* Pods_DirectionalSnake.framework */,
@@ -119,6 +123,7 @@
 				5A1FD0681DFDADE40071AE2F /* Assets.xcassets */,
 				5A1FD06A1DFDADE40071AE2F /* LaunchScreen.storyboard */,
 				5A1FD06D1DFDADE40071AE2F /* Info.plist */,
+				5A54020A1E25555000A62E83 /* SecretStuff.swift */,
 			);
 			path = DirectionalSnake;
 			sourceTree = "<group>";
@@ -257,6 +262,7 @@
 				5A220AB21E06806F00348596 /* GameSystemDelegate.swift in Sources */,
 				5A1C3C3B1DFFE02900C61790 /* GameSystem.swift in Sources */,
 				5A1FD05C1DFDADE40071AE2F /* AppDelegate.swift in Sources */,
+				5A54020B1E25555000A62E83 /* SecretStuff.swift in Sources */,
 				5A3A3FEA1E0CAC3900B37C2F /* ButtonNode.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -385,6 +391,10 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = E9MW74DJ4Y;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/build/Debug-iphoneos/SwiftyUtils",
+				);
 				INFOPLIST_FILE = DirectionalSnake/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -401,6 +411,10 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = E9MW74DJ4Y;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/build/Debug-iphoneos/SwiftyUtils",
+				);
 				INFOPLIST_FILE = DirectionalSnake/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

@@ -5,9 +5,9 @@ target 'DirectionalSnake' do
   # Comment this line if you're not using Swift and don't want to use dynamic frameworks
   use_frameworks!
 
-  pod 'EZSwiftExtensions'
   pod 'SwiftRandom'
   pod 'Firebase/AdMob'
   pod 'Firebase/Core'
+  pod 'SwiftyUtils'
 
 end
