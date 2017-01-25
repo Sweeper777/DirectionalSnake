@@ -13,7 +13,7 @@ import AVFoundation
 
 class GameViewController: UIViewController {
 
-    let audioPlayer = try! AVAudioPlayer(contentsOf: Bundle.main.url(forResource: "Meltdown", withExtension: "mp3")!)
+    let audioPlayer = try! AVAudioPlayer(contentsOf: Bundle.main.url(forResource: "Spin it again", withExtension: "wav")!)
     
     override func viewDidLoad() {
         super.viewDidLoad()
